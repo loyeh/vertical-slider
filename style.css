@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  color: white;
+}
+
+.left,
+.right {
+  position: absolute;
+  height: 100%;
+  transition: 1s;
+}
+
+.left {
+  top: -100vh;
+}
+
+.right {
+  bottom: -100vh;
+}
+
+.active .left {
+  width: 30%;
+  background-color: #557585;
+  top: 0;
+
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.active .right {
+  width: 70%;
+  background-image: url("./images/cloudy-foggy.jpg");
+  background-size: cover;
+  bottom: 0;
+  right: 0;
+}
+
+p {
+  font-size: 14px;
+}
+
+.active .btn {
+  position: fixed;
+  width: 50px;
+  height: 40px;
+  top: 50%;
+  right: 70%;
+  width: max-content;
+  padding: 10px;
+  background-color: white;
+  border-radius: 4px;
+  color: #777;
+  cursor: pointer;
+  transform: translateY(50%);
+}
+
+.active .right .btn {
+  left: 30%;
+  transform: translateY(-50%);
+  color: #000;
+}
+
+/* #container1.left{
+  background-color: ;
+} */
