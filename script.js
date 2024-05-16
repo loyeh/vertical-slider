@@ -28,6 +28,6 @@ function slideDown() {
     slideNum = 3;
   }
   console.log(slideNum);
-  rightSlides.style.transform = `translateY(-${height * slideNum}px`;
-  leftSlides.style.transform = `translateY(${height * slideNum}px`;
+  rightSlides.style.transform = `translateY(-${100 * slideNum}vh`;
+  leftSlides.style.transform = `translateY(${100 * slideNum}vh`;
 }
