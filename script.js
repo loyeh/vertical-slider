@@ -1,56 +1,34 @@
-let containers = document.querySelectorAll(".container");
-containers = Array.from(containers);
-let leftContainers = document.querySelectorAll(".left");
-leftContainers = Array.from(leftContainers);
-let rightContainers = document.querySelectorAll(".right");
-rightContainers = Array.from(rightContainers);
-const downBtn = document.getElementById("downBtn");
-const upBtn = document.getElementById("upBtn");
+const upBtn = document.querySelector(".upBtn");
+const downBtn = document.querySelector(".downBtn");
+const rightSlides = document.querySelector(".right-slides");
+const leftSlides = document.querySelector(".left-slides");
 
-const images = [
-  "cloudy-foggy",
-  "magical-spring",
-  "nature-mountain",
-  "palm-tree",
-];
+console.log(leftSlides, rightSlides, upBtn, downBtn);
 
-let pageIndex = 0;
+upBtn.addEventListener("click", slideUp);
+downBtn.addEventListener("click", slideDown);
 
-const colors = ["#557585", "#778555", "#85557f", "#56928d"];
+let slideNum = 0;
+const height = window.innerHeight;
 
-console.log(downBtn, upBtn);
-
-leftContainers.forEach((container, index) => {
-  container.style.backgroundColor = `${colors[index]}`;
-});
-
-rightContainers.forEach((container, index) => {
-  container.style.backgroundImage = `url("./images/${images[index]}.jpg")`;
-});
-
-downBtn.addEventListener("click", () => {
-  if (pageIndex < 3) {
-    pageIndex++;
-  } else {
-    pageIndex = 0;
+leftSlides.style.top = `-${3 * 100}vh`;
+console.log(height);
+function slideUp() {
+  slideNum++;
+  if (slideNum > 3) {
+    slideNum = 0;
   }
-  containers.forEach((container) => {
-    container.classList.remove("active");
-  });
-  containers[pageIndex].classList.add("active");
+  console.log(slideNum);
+  rightSlides.style.transform = `translateY(-${height * slideNum}px`;
+  leftSlides.style.transform = `translateY(${height * slideNum}px`;
+}
 
-  console.log(pageIndex);
-});
-
-upBtn.addEventListener("click", () => {
-  if (pageIndex < 3) {
-    pageIndex++;
-  } else {
-    pageIndex = 0;
+function slideDown() {
+  slideNum--;
+  if (slideNum < 0) {
+    slideNum = 3;
   }
-  containers.forEach((container) => {
-    container.classList.remove("active");
-  });
-  containers[pageIndex].classList.add("active");
-  console.log(pageIndex);
-});
+  console.log(slideNum);
+  rightSlides.style.transform = `translateY(-${height * slideNum}px`;
+  leftSlides.style.transform = `translateY(${height * slideNum}px`;
+}

@@ -4,83 +4,70 @@
   box-sizing: border-box;
 }
 
-.main {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-.container {
-  width: 100vw;
-  height: 100vh;
+.slide-container {
   display: flex;
   flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-container div {
+  position: fixed;
+  left: 30vw;
+  top: 50vh;
+  padding: 10px;
+  font-size: 20px;
+  background-color: white;
+  color: #8d8d8d;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.button-container div:hover {
+  color: black;
+}
+
+.upBtn {
+  transform: translateY(-100%);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.downBtn {
+  transform: translateX(-100%);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.right-slides {
+  width: 70vw;
+  height: 100vh;
+  position: relative;
+  transition: 1s ease-in-out;
+}
+
+.left-slides {
+  width: 30vw;
+  height: 100vh;
+  position: relative;
+  transition: 1s ease-in-out;
   color: white;
 }
 
-.left,
-.right {
-  position: absolute;
+.right-slides div {
+  width: 100%;
   height: 100%;
-  transition: 1s;
+  background-size: 100% 100%;
+  background-position: center;
 }
 
-.left {
-  top: -100vh;
-}
-
-.right {
-  bottom: -100vh;
-}
-
-.active .left {
-  width: 30%;
-  background-color: #557585;
-  top: 0;
-
-  left: 0;
+.left-slides div {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
-.active .right {
-  width: 70%;
-  background-image: url("./images/cloudy-foggy.jpg");
-  background-size: cover;
-  bottom: 0;
-  right: 0;
-}
-
-p {
-  font-size: 14px;
-}
-
-.active .btn {
-  position: fixed;
-  width: 50px;
-  height: 40px;
-  top: 50%;
-  right: 70%;
-  width: max-content;
-  padding: 10px;
-  background-color: white;
-  border-radius: 4px;
-  color: #777;
-  cursor: pointer;
-  transform: translateY(50%);
-}
-
-.active .right .btn {
-  left: 30%;
-  transform: translateY(-50%);
-  color: #000;
-}
-
-/* #container1.left{
-  background-color: ;
-} */
